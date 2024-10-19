@@ -1,0 +1,63 @@
+{
+    "ClaimReward": {
+        "next": [
+            "ClickRewardButton"
+        ]
+    },
+    "ClickRewardButton": {
+        "recognition": "TemplateMatch",
+        "template": "reward_button.png",
+        "roi": [
+            1207,
+            112,
+            59,
+            66
+        ],
+        "action": "Click",
+        "next": [
+            "IsClaimed",
+            "ClickClaimButton"
+        ]
+    },
+    "IsClaimed": {
+        "recognition": "OCR",
+        "expected": "0件",
+        "roi" : [
+            895,
+            629,
+            149,
+            48
+        ],
+        "next": [
+            "ClickBackButton"
+        ]
+    },
+    "ClickClaimButton": {
+        "recognition": "TemplateMatch",
+        "template": "claim_button.png",
+        "roi": [
+            1042,
+            626,
+            203,
+            54
+        ],
+        "action": "Click",
+        "next": [
+            "ClickOKButton"
+        ]
+    },
+    "ClickOKButton": {
+        "recognition": "OCR",
+        "expected": "Ok",
+        "roi": [
+            602,
+            630,
+            72,
+            50
+        ],
+        "action": "Click",
+        "next": [
+            "ClickBackButton"
+        ]
+    }
+}

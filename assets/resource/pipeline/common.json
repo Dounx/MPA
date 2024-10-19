@@ -1,0 +1,52 @@
+{
+    "EndTask": {},
+    "InterruptWaitForLoading": {
+        "post_wait_freezes": {
+            "time": 1000,
+            "target": [
+                1181,
+                617,
+                82,
+                88
+            ],
+            "timeout": 180000
+        }
+    },
+    "InterruptClickDownloadButton": {
+        "recognition": "OCR",
+        "expected": "ダウンロード",
+        "roi": [
+            680,
+            518,
+            159,
+            43
+        ],
+        "action": "Click",
+        "next": [
+            "WaitForDownloading"
+        ]
+    },
+    "WaitForDownloading": {
+        "post_wait_freezes": {
+            "time": 1000,
+            "target": [
+                1135,
+                663,
+                96,
+                36
+            ],
+            "timeout": 600000
+        }
+    },
+    "ClickBackButton": {
+        "recognition": "TemplateMatch",
+        "template": "back_button.png",
+        "roi": [
+            6,
+            6,
+            72,
+            72
+        ],
+        "action": "Click"
+    }
+}

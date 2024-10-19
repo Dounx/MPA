@@ -1,0 +1,6 @@
+{
+    "StopGame": {
+        "action": "StopApp",
+        "package": "com.sega.pjsekai"
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "StartGame": {
+        "action": "StartApp",
+        "package": "com.sega.pjsekai",
+        "next": [
+            "TapToStart"
+        ],
+        "post_wait_freezes": 1000,
+        "timeout": 60000
+    },
+    "TapToStart": {
+        "recognition": "OCR",
+        "expected": [
+            "TAP",
+            "TO",
+            "START"
+        ],
+        "roi": [
+            534,
+            596,
+            210,
+            42
+        ],
+        "action": "Click",
+        "interrupt": [
+            "InterruptClickDownloadButton",
+            "InterruptCloseLoginBonus",
+            "InterruptWaitForLoading"
+        ],
+        "next": [
+            "CloseAnnouncement"
+        ]
+    },
+    "CloseAnnouncement": {
+        "recognition": "TemplateMatch",
+        "template": "close_button.png",
+        "roi": [
+            1128,
+            24,
+            37,
+            39
+        ],
+        "action": "Click",
+        "next": [
+            "EndTask"
+        ]
+    },
+    "InterruptCloseLoginBonus": {
+        "recognition": "OCR",
+        "expected": "報酬を獲得しました",
+        "roi": [
+            526,
+            395,
+            219,
+            46
+        ],
+        "action": "Click"
+    }
+}

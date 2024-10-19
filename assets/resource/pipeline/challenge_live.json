@@ -1,0 +1,283 @@
+{
+    "ChallengeLive": {
+        "next": [
+            "ClickLiveButton"
+        ]
+    },
+    "ClickLiveButton": {
+        "recognition": "TemplateMatch",
+        "template": "live_button.png",
+        "roi": [
+            1080,
+            616,
+            161,
+            68
+        ],
+        "action": "Click",
+        "post_wait_freezes": 100,
+        "next": [
+            "ClickChallengeLiveButton",
+            "ClickBackButton"
+        ]
+    },
+    "ClickChallengeLiveButton": {
+        "recognition": "TemplateMatch",
+        "template": "has_notification.png",
+        "roi": [
+            890,
+            336,
+            20,
+            36
+        ],
+        "action": "Click",
+        "target": [
+            623,
+            351,
+            272,
+            77
+        ],
+        "next": [
+            "ClickVirtualSinger"
+        ]
+    },
+    "ClickVirtualSinger": {
+        "recognition": "TemplateMatch",
+        "template": "virtual_singer.png",
+        "green_mask": true,
+        "roi": [
+            28,
+            107,
+            100,
+            59
+        ],
+        "action": "Click",
+        "next": [
+            "ClickHatsuneMiku"
+        ]
+    },
+    "ClickHatsuneMiku": {
+        "action": "Click",
+        "target": [
+            188,
+            80,
+            157,
+            556
+        ],
+        "interrupt": [
+            "InterruptClickChallengeButton"
+        ],
+        "next": [
+            "ClickConfirmSongButton"
+        ]
+    },
+    "ClickConfirmSongButton": {
+        "recognition": "OCR",
+        "expected" : "決定",
+        "roi": [
+            971,
+            563,
+            70,
+            46
+        ],
+        "action": "Click",
+        "interrupt": [
+            "InterruptClickAutoOnButton"
+        ],
+        "next": [
+            "IsAutoOn"
+        ]
+    },
+    "IsAutoOn": {
+        "recognition": "OCR",
+        "expected": "0N",
+        "roi": [
+            579,
+            647,
+            51,
+            36
+        ],
+        "next": [
+            "ClickPlayButton"
+        ]
+    },
+    "ClickPlayButton": {
+        "recognition": "TemplateMatch",
+        "template": "play_button.png",
+        "roi": [
+            947,
+            484,
+            126,
+            126
+        ],
+        "action": "Click",
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 300000
+        },
+        "timeout": 300000,
+        "interrupt": [
+            "InterruptClickConfirmNoteSpeedButton"
+        ],
+        "next": [
+            "ClickLiveClear"
+        ]
+    },
+    "ClickLiveClear": {
+        "pre_wait_freezes": 100,
+        "recognition": "TemplateMatch",
+        "template": "live_clear.png",
+        "threshold": 0.6,
+        "roi": [
+            129,
+            269,
+            846,
+            133
+        ],
+        "action": "Click",
+        "next": [
+            "ClickWeeklyChallengeReward"
+        ]
+    },
+    "ClickWeeklyChallengeReward": {
+        "pre_wait_freezes": 100,
+        "recognition": "TemplateMatch",
+        "template": "weekly_challenge_reward.png",
+        "green_mask": true,
+        "roi": [
+            390,
+            181,
+            471,
+            56
+        ],
+        "action": "Click",
+        "post_wait_freezes": 100,
+        "interrupt": [
+            "InterruptClickChallengeStageUp",
+            "InterruptClickCharacterRankUp",
+            "InterruptClickPlayerRankUp",
+            "InterruptClickRewardClaimed"
+        ],
+        "next": [
+            "ClickFirstNextButton"
+        ]
+    },
+    "ClickFirstNextButton": {
+        "post_wait_freezes": 100,
+        "recognition": "OCR",
+        "expected": "次へ",
+        "roi": [
+            1082,
+            639,
+            92,
+            53
+        ],
+        "action": "Click",
+        "next": [
+            "ClickSecondNextButton"
+        ]
+    },
+    "ClickSecondNextButton": {
+        "post_wait_freezes": 100,
+        "recognition": "OCR",
+        "expected": "次へ",
+        "roi": [
+            1082,
+            639,
+            92,
+            53
+        ],
+        "action": "Click"
+    },
+    "ClickThirdNextButton": {
+        "post_wait_freezes": 100,
+        "recognition": "OCR",
+        "expected": "次へ",
+        "roi": [
+            1082,
+            639,
+            92,
+            53
+        ],
+        "action": "Click"
+    },
+    "InterruptClickChallengeButton": {
+        "recognition": "TemplateMatch",
+        "template": "challenge_button.png",
+        "roi": [
+            645,
+            506,
+            229,
+            69
+        ],
+        "action": "Click"
+    },
+    "InterruptClickAutoOnButton": {
+        "recognition": "OCR",
+        "expected": "OFF",
+        "roi": [
+            612,
+            648,
+            54,
+            37
+        ],
+        "action": "Click"
+    },
+    "InterruptClickConfirmNoteSpeedButton": {
+        "recognition": "TemplateMatch",
+        "template": "confirm_note_speed_button.png",
+        "roi": [
+            645,
+            502,
+            229,
+            68
+        ],
+        "action": "Click"
+    },
+    "InterruptClickChallengeStageUp": {
+        "recognition": "TemplateMatch",
+        "template": "challenge_stage_up.png",
+        "green_mask": true,
+        "roi": [
+            234,
+            193,
+            808,
+            74
+        ],
+        "action": "Click"
+    },
+    "InterruptClickCharacterRankUp": {
+        "recognition": "TemplateMatch",
+        "template": "character_rank_up.png",
+        "green_mask": true,
+        "roi": [
+            313,
+            145,
+            665,
+            82
+        ],
+        "action": "Click"
+    },
+    "InterruptClickRewardClaimed": {
+        "recognition": "TemplateMatch",
+        "template": "reward_claimed.png",
+        "green_mask": true,
+        "roi": [
+            528,
+            399,
+            214,
+            41
+        ]
+    },
+    "InterruptClickPlayerRankUp": {
+        "recognition": "TemplateMatch",
+        "template": "player_rank_up.png",
+        "green_mask": true,
+        "roi": [
+            346,
+            155,
+            586,
+            74
+        ],
+        "action": "Click"
+    }
+}
